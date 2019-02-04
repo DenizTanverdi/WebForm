@@ -7,11 +7,9 @@ using System.Web.UI.WebControls;
 
 namespace WebForm
 {
-    public partial class WebForm : System.Web.UI.Page
-    {
-             testEntities1 db = new testEntities1();
+    public partial class Login : System.Web.UI.Page
+    {   testEntities1 db = new testEntities1();
         string username, password;
-
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -23,9 +21,9 @@ namespace WebForm
             password = TextBox2.Text;
             var user = db.Users.Where(I => I.email == username && I.password == password).Select(I => I).FirstOrDefault();
 
-            if (user!=null)
+            if (user != null)
             {
-               
+
                 string ip = HttpContext.Current.Request.UserHostAddress;
                 user.SessionId = Session.SessionID;
                 user.ipAddress = ip;
@@ -37,5 +35,7 @@ namespace WebForm
                 Response.Redirect("AnaSayfa.aspx");
             }
         }
+
+       
     }
 }

@@ -19,5 +19,9 @@ namespace WebForm
         public string password { get; set; }
         public Nullable<int> islogin { get; set; }
         public string SessionId { get; set; }
+        public string ipAddress { get; set; }
+        public Nullable<System.DateTime> lastLogin { get; set; }
+        public Nullable<int> loginCount { get; set; }
+        public string webBrowser { get; set; }
     }
 }
